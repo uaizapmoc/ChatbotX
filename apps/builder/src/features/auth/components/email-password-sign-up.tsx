@@ -39,7 +39,7 @@ export const EmailPasswordSignUp = () => {
     if (data) {
       toast.success(t("auth.signUpSuccess"))
       router.push(
-        withCallbackUrlParam("/auth/sign-in", searchParams.get("callbackURL")),
+        searchParams.get("callbackURL") || "/",
       )
     } else {
       toast.error(error.message)

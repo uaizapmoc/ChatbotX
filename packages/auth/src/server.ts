@@ -637,7 +637,7 @@ export function createAuth(config: AuthConfig) {
     },
     emailAndPassword: {
       enabled: true,
-      requireEmailVerification: true,
+      requireEmailVerification: false,
       sendResetPassword: async ({ user, url }, request) => {
         if (isPlaceholderEmail(user.email)) {
           return
@@ -684,6 +684,8 @@ export function createAuth(config: AuthConfig) {
       },
     },
     emailVerification: {
+      sendOnSignUp: false,
+      autoSignInAfterVerification: true,
       sendVerificationEmail: async ({ user, url }, request) => {
         if (isPlaceholderEmail(user.email)) {
           return
